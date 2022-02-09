@@ -18,7 +18,7 @@ public class Solution {
             countOdd += arr[i]%2;
         }
         
-        // string can be converted to palindrome if there more than 1 odd letter 
+        // string cant be converted to palindrome if there more than 1 odd letter 
         // for example "aabbcg" cant be palindrome  because of the "cg" which exists once
         return countOdd < 2;
     }
