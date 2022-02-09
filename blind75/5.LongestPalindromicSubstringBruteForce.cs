@@ -3,7 +3,7 @@
 * Given a string s, return the longest palindromic substring in s.
 */
 // Brute-Force O(n^3); o(m)
-// generates TLE at leetcode
+// generates TLE on leetcode
 public class Solution {
     public string LongestPalindrome(string s) {
         var len = s.Length;
@@ -19,7 +19,7 @@ public class Solution {
             for(var right = left; right<len; right++){
                 var currSize = right-left+1;
                 var subStringToCheck = s.Substring(left, currSize);
-                if(IsPalindromic(subStringToCheck)){
+                if(IsPalindromic(s, left, currSize)){
                     
                     if(currSize>maxSize){
                         maxSize = currSize;
@@ -34,10 +34,9 @@ public class Solution {
         
     }
     
-    private bool IsPalindromic(string s){
-        var len = s.Length;
-        var j = len-1;
-        for(var i=0; i<j; i++){
+    private bool IsPalindromic(string s, int start, int len){
+        var j = start + len-1;
+        for(var i=start; i<j; i++){
             if(s[i] != s[j]){
                 return false;
             }
