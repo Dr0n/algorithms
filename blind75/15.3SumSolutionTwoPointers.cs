@@ -22,6 +22,9 @@ public class Solution {
         Array.Sort(nums);
         var results = new List<IList<int>>();
         for(int i=0; i<len-1; i++){
+            if(nums[i]>0){
+                return results;
+            }
             if(i == 0 || nums[i] != nums[i-1]){
                 var result = TwoSum2(i, nums);
                 if(result != null){
